@@ -1,4 +1,4 @@
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -33,10 +33,16 @@
   }
 }
 
+h1 {
+  color: green !important;
+  font-size: 6.2em;
+  line-height: 3.1;
+}
+
 .card {
   padding: 2em;
 }
 
 .read-the-docs {
   color: #888;
-}
+} */
