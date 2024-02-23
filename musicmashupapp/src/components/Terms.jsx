@@ -1,3 +1,5 @@
+import FooterComponent from "./FooterComponent";
+
 const Terms = () => {
   return (
     <div className="container py-md-5">
@@ -7,6 +9,7 @@ const Terms = () => {
       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita voluptates quisquam possimus tenetur, dicta enim rerum quis, quaerat id nobis provident quo dolorum sapiente temporibus facere non repellendus consequatur cupiditate!</p>
       <h3>Details</h3>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae laboriosam distinctio atque sint earum? Temporibus, voluptas aspernatur aliquam nisi sed harum laborum, nemo odio animi officia quisquam. Veniam, natus reprehenderit.</p>
+      <FooterComponent />
     </div>
   );
 };
