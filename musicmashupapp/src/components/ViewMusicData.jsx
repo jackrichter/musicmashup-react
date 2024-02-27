@@ -1,6 +1,5 @@
 import { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
-// import { getMusicBrainzInfo } from "../services/MusicInfoService";
 import FooterComponent from "./FooterComponent";
 import axios from "axios";
 import Background from "./Background";
