@@ -154,6 +154,15 @@ html {
 }
 /* End of Search Form */
 
+/* MusicData */
+.info-div {
+  z-index: 6;
+}
+info-label {
+  z-index: 7;
+}
+/* End of MusicData */
+
 /* Footer */
 .footer {
   position: absolute;
