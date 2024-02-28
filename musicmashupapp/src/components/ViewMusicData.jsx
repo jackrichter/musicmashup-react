@@ -29,6 +29,12 @@ const ViewMusicData = () => {
   var data = musicDataRef.current;
   console.log(data);
   console.log("ResponseData: ", responseData);
+  var splitData = JSON.stringify(data);
+  var splitArr = splitData.split(",");
+  splitArr.forEach(e => {
+    e.replace('"', "");
+  });
+  console.log("splitArr: ", splitArr[0]);
 
   return (
     <div className="container py-md-5">
