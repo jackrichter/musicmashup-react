@@ -3,9 +3,12 @@ import { useParams } from "react-router-dom";
 import FooterComponent from "./FooterComponent";
 import axios from "axios";
 import Background from "./Background";
+import JSONPretty from "json-stringify-pretty-compact";
+import LogoForSearchResult from "./LogoForSearchResult";
 
 const ViewMusicData = () => {
   const { mbid } = useParams();
+  // eslint-disable-next-line no-unused-vars
   const [responseData, setResponseData] = useState(null);
   const musicDataRef = useRef(null);
 
@@ -16,35 +19,34 @@ const ViewMusicData = () => {
         // Assuming the response data is in JSON format
         setResponseData(JSON.stringify(response.data));
         musicDataRef.current = JSON.stringify(response.data);
-        console.log("Ref: ", musicDataRef.current);
+        // console.log("Ref: ", musicDataRef.current);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
 
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log("Data:");
   var data = musicDataRef.current;
-  console.log(data);
-  console.log("ResponseData: ", responseData);
-  var splitData = JSON.stringify(data);
-  var splitArr = splitData.split(",");
-  splitArr.forEach(e => {
-    e.replace('"', "");
-  });
-  console.log("splitArr: ", splitArr[0]);
+  // console.log(data);
+  // console.log("ResponseData: ", responseData);
+  const pretty = JSONPretty(musicDataRef.current, { indent: 4 });
+  const jsonDisplay = pretty.replace(/,/g, "\n");
+  // console.log("Ref Pretty: ", jsonDisplay);
 
   return (
     <div className="container py-md-5">
       <Background />
       {data ? (
         <div className="row d-flex justify-content-center">
-          <textarea id="textarea" className="form-form-control-color info-div" cols={150} rows={30} ref={musicDataRef} value={musicDataRef.current}></textarea>
+          <textarea readOnly="true" id="textarea" className="form-form-control-color info-div" cols={150} rows={30} value={jsonDisplay}></textarea>
         </div>
       ) : (
-        <p>Loading...</p>
+        <p>
+          <LogoForSearchResult />
+        </p>
       )}
       <FooterComponent />
     </div>

@@ -60,6 +60,20 @@ html {
   text-align: right;
   transform: translate(2.2rem, -1rem);
 }
+.loading-logo {
+  display: flex;
+  flex-direction: column;
+}
+.loading-logo span {
+  text-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+.loading-logo span:nth-child(1) {
+  font-family: "Mooli", cursive;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  z-index: 4;
+}
 /* End of Logo */
 /* Nav Items */
 .nav-items {
