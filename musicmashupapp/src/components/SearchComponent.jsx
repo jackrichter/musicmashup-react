@@ -10,24 +10,7 @@ const SearchComponent = () => {
     e.preventDefault();
     console.log("MBID: " + mbid);
     navigate("/view-music-info/" + `${mbid}`);
-    // try {
-    //   const response = await getMusicBrainzInfo(mbid);
-    //   if (response.data) {
-    //     musicDataRef.current = response.data;
-    //     setMusicData(response.data);
-    //   }
-    //   console.log(response.status);
-    // } catch (err) {
-    //   console.log("Something went wrong: " + err);
-    // }
   }
-
-  // function setData() {
-  //   console.log("In setData");
-  //   setMusicData(musicDataRef.current);
-  //   setIsSearchClicked(false);
-  //   console.log(musicData);
-  // }
 
   return (
     <div className="lower-form">
