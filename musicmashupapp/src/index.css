@@ -171,8 +171,10 @@ html {
 /* MusicData */
 .info-div {
   z-index: 6;
+  color: red;
+  font-size: medium;
 }
-info-label {
+.info-label {
   z-index: 7;
 }
 /* End of MusicData */

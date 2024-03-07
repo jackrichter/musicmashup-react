@@ -9,7 +9,7 @@ import LogoForSearchResult from "./LogoForSearchResult";
 const ViewMusicData = () => {
   const { mbid } = useParams();
   // eslint-disable-next-line no-unused-vars
-  const [responseData, setResponseData] = useState(null);
+  const [responseData, setResponseData] = useState({});
   const musicDataRef = useRef(null);
 
   useEffect(() => {
@@ -25,15 +25,28 @@ const ViewMusicData = () => {
       }
     };
 
-    fetchData();
+    function fetchData2() {
+      fetch("http://localhost:8181/music/musicbrainz/" + mbid)
+        .then(res => res.json())
+        .then(data => {
+          setResponseData(data);
+          console.log(data);
+          musicDataRef.current = data;
+          console.log("musicDataRef");
+          console.log(musicDataRef.current);
+        });
+    }
+
+    // fetchData();
+    fetchData2();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   var data = musicDataRef.current;
   // console.log(data);
   // console.log("ResponseData: ", responseData);
-  const pretty = JSONPretty(musicDataRef.current, { indent: 4 });
-  const jsonDisplay = pretty.replace(/,/g, "\n");
+  const jsonDisplay = JSONPretty(musicDataRef.current, { indent: 2 });
+  // const jsonDisplay = pretty.replace(/{|}/g, "");
   // console.log("Ref Pretty: ", jsonDisplay);
 
   return (
@@ -41,7 +54,7 @@ const ViewMusicData = () => {
       <Background />
       {data ? (
         <div className="row d-flex justify-content-center">
-          <textarea readOnly="true" id="textarea" className="form-form-control-color info-div" cols={150} rows={30} value={jsonDisplay}></textarea>
+          <textarea readOnly="true" id="textarea" className="form-form-control-color info-div" cols={200} rows={30} value={jsonDisplay}></textarea>
         </div>
       ) : (
         <p>
