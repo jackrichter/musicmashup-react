@@ -30,4 +30,6 @@ The backend server app should run first:
  3. Go to the URL mentioned above.
  4. Enter a valid MBID in the search input field and click the 'search' button.
     The value is cleared after clicking 'search'.
+Obs.
+Java 17 has to be installed on your local computer to run the JAR file!
     
